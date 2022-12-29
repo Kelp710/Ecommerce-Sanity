@@ -10,6 +10,9 @@ export const StateContext = ({children}) => {
     const [totalQuantities, settotalQuantities] = useState(0);
     const [qty, setQty] = useState(1);
 
+    let foundProduct;
+    let index;
+
     const onAdd = (product, quantity) => {
         const checkProductInCart= cartItems.find((item) => item._id === product.id);
         settotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
@@ -28,8 +31,34 @@ export const StateContext = ({children}) => {
 
             setcartItems([...cartItems,{...product}])
         }
-        {console.log(cartItems)}
         toast.success(`${qty} ${product.name} added to your cart!`);
+    }
+
+    const onRemove = (product) =>{
+        foundProduct = cartItems.find((item)=>item._id===product._id)
+        const newCartItems = cartItems.filter((item)=>item._id !== product._id)
+        settotalPrice((prevTotalPrice)=>prevTotalPrice - foundProduct.price* foundProduct.quantity)
+        settotalQuantities((prevtotalQuantity)=>prevtotalQuantity-foundProduct.quantity)
+        setcartItems([...newCartItems])
+    }
+
+    const toggleCartItemQuanitity = (id, value) => {
+        foundProduct = cartItems.find((item)=>item._id===id)
+        index= cartItems.findIndex((product) =>product._id === id)
+        const newCartItems = cartItems.filter((item)=>item._id !== id)
+
+        if(value==='inc'){
+            setcartItems([...newCartItems,{...foundProduct,quantity: foundProduct.quantity+1}])
+            settotalPrice((prevTotalPrice)=>prevTotalPrice+foundProduct.price)
+            settotalQuantities((prevTotalQuantity)=>prevTotalQuantity+1)
+        }
+        else if(value==='dec'){
+            if(foundProduct.quantity >1){
+            setcartItems([...newCartItems,{...foundProduct,quantity: foundProduct.quantity-1}])
+            settotalPrice((prevTotalPrice)=>prevTotalPrice-foundProduct.price)
+            settotalQuantities((prevTotalQuantity)=>prevTotalQuantity-1)
+            }
+        }
     }
 
     const incQty = () =>{
@@ -51,6 +80,8 @@ export const StateContext = ({children}) => {
         incQty,
         decQty,
         onAdd,
+        toggleCartItemQuanitity,
+        onRemove,
     }}>
         {children}
     </Context.Provider>)

@@ -2,11 +2,14 @@
   "name": "shopsanity",
   "version": "0.1.0",
   "private": true,
+  "main": "function.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next export",
+    "deploy": "npm run build && cross-env NODE_ENV=production firebase --debug deploy --only functions,hosting",
     "sanity": "@sanity/cli"
   },
   "dependencies": {
@@ -15,12 +18,16 @@
     "@sanity/image-url": "^1.0.1",
     "@stripe/stripe-js": "^1.25.0",
     "canvas-confetti": "^1.5.1",
+    "cross-env": "^7.0.3",
+    "firebase-admin": "^11.4.1",
+    "firebase-functions": "^4.1.1",
     "next": "12.1.0",
     "next-sanity-image": "^3.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1",
+    "sanity": "^3.1.2",
     "stripe": "^8.209.0"
   }
 }

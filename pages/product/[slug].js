@@ -18,6 +18,7 @@ const { qty, incQty,decQty, onAdd } = useStateContext();
                 <div className='image-container'>
                     <img src={urlFor(image && image[index])} className='product-detail-image'></img>
                 </div>
+                {console.log(image)}
                 <div className='small-images-container'>
                     {image?.map((item, i) => (
                          

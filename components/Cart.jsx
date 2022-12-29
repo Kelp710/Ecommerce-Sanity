@@ -9,7 +9,7 @@ import {urlFor} from '../lib/Client'
 
 const Cart = () => {
   const cartRef = useRef()
-  const {qty, decQty, incQty,totalPrice, totalQuantities, cartItems, setShowCart} = useStateContext();
+  const {qty, decQty, incQty,totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove} = useStateContext();
 
   return (
     <div className='cart-wrapper'>
@@ -49,18 +49,38 @@ const Cart = () => {
                 <div>
                 <p className='quantity-desc'>
                         <span className='minus'
-                        onClick={decQty}><AiOutlineMinus/></span>
-                        <span className='num'
-                        onClick="">{qty}</span>
+                        onClick={()=>toggleCartItemQuanitity(item._id, 'dec')}><AiOutlineMinus/></span>
+                        <span className='num'>{item.quantity}</span>
                         <span className='plus'
-                        onClick={incQty}><AiOutlinePlus/></span>
+                        onClick={()=>toggleCartItemQuanitity(item._id, 'inc')}><AiOutlinePlus/></span>
                     </p>
                 </div>
+                <button
+                type='button'
+                className='remove-item'
+                onClick={()=>onRemove(item)}
+                >
+                  <TiDeleteOutline/>
+                </button>
               </div>
               </div>
             </div>)
           )}
         </div>
+        {cartItems.length >=1&&(
+          <div className='cart-bottom'>
+            <div className='total'>
+              <h3>Subtotal:</h3>
+              {console.log(totalPrice)}
+              <h3>${totalPrice}</h3>
+            </div>
+            <div className='btn-container'>
+              <button type='button' className='btn' onClick=''>
+                Pay With Stripe
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
