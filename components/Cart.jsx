@@ -9,6 +9,7 @@ import {urlFor} from '../lib/Client'
 import getStripe from '../lib/getStripe';
 
 const Cart = () => {
+
   const cartRef = useRef()
   const {qty, decQty, incQty,totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove} = useStateContext();
 
@@ -25,7 +26,7 @@ const Cart = () => {
     const data = await response.json()
     toast.loading('Redirecting you to Capitalism...')
 
-    stripe.redirectToCheckOut({sessionId: data.id})
+    stripe.redirectToCheckout({sessionId: data.id})
   }
 
   return (

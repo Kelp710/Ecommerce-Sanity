@@ -20,7 +20,6 @@ const { qty, incQty,decQty, onAdd } = useStateContext();
                 </div>
                 <div className='small-images-container'>
                     {image?.map((item, i) => (
-                         
                         <img  
                         key={i}
                         src={urlFor(item.asset)}
