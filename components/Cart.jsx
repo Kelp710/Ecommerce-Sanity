@@ -89,7 +89,6 @@ const Cart = () => {
           <div className='cart-bottom'>
             <div className='total'>
               <h3>Subtotal:</h3>
-              {console.log(totalPrice)}
               <h3>${totalPrice}</h3>
             </div>
             <div className='btn-container'>

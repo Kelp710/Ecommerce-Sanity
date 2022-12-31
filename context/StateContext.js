@@ -5,9 +5,9 @@ const Context = createContext();
 
 export const StateContext = ({children}) => {
     const [showCart, setShowCart] = useState(false);
-    const [cartItems, setcartItems] = useState([]);
-    const [totalPrice, settotalPrice] = useState(0);
-    const [totalQuantities, settotalQuantities] = useState(0);
+    const [cartItems, setCartItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [totalQuantities, setTotalQuantities] = useState(0);
     const [qty, setQty] = useState(1);
 
     let foundProduct;
@@ -15,8 +15,8 @@ export const StateContext = ({children}) => {
 
     const onAdd = (product, quantity) => {
         const checkProductInCart= cartItems.find((item) => item._id === product.id);
-        settotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
-        settotalQuantities((prevtotalQuantity) => prevtotalQuantity + quantity)
+        setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
+        setTotalQuantities((prevtotalQuantity) => prevtotalQuantity + quantity)
         if (checkProductInCart){
             const updatedCartItems = cartItems.map((cartProduct)=> {
                 if (cartProduct._id === product._id) return {
@@ -24,12 +24,12 @@ export const StateContext = ({children}) => {
                     quantity: cartProduct.quantity + quantity
                 }
             })
-        setcartItems(updatedCartItems);
+        setCartItems(updatedCartItems);
         }
         else{
             product.quantity = quantity
 
-            setcartItems([...cartItems,{...product}])
+            setCartItems([...cartItems,{...product}])
         }
         toast.success(`${qty} ${product.name} added to your cart!`);
     }
@@ -37,9 +37,9 @@ export const StateContext = ({children}) => {
     const onRemove = (product) =>{
         foundProduct = cartItems.find((item)=>item._id===product._id)
         const newCartItems = cartItems.filter((item)=>item._id !== product._id)
-        settotalPrice((prevTotalPrice)=>prevTotalPrice - foundProduct.price* foundProduct.quantity)
-        settotalQuantities((prevtotalQuantity)=>prevtotalQuantity-foundProduct.quantity)
-        setcartItems([...newCartItems])
+        setTotalPrice((prevTotalPrice)=>prevTotalPrice - foundProduct.price* foundProduct.quantity)
+        setTotalQuantities((prevtotalQuantity)=>prevtotalQuantity-foundProduct.quantity)
+        setCartItems([...newCartItems])
     }
 
     const toggleCartItemQuanitity = (id, value) => {
@@ -48,15 +48,15 @@ export const StateContext = ({children}) => {
         const newCartItems = cartItems.filter((item)=>item._id !== id)
 
         if(value==='inc'){
-            setcartItems([...newCartItems,{...foundProduct,quantity: foundProduct.quantity+1}])
-            settotalPrice((prevTotalPrice)=>prevTotalPrice+foundProduct.price)
-            settotalQuantities((prevTotalQuantity)=>prevTotalQuantity+1)
+            setCartItems([...newCartItems,{...foundProduct,quantity: foundProduct.quantity+1}])
+            setTotalPrice((prevTotalPrice)=>prevTotalPrice+foundProduct.price)
+            setTotalQuantities((prevTotalQuantity)=>prevTotalQuantity+1)
         }
         else if(value==='dec'){
             if(foundProduct.quantity >1){
-            setcartItems([...newCartItems,{...foundProduct,quantity: foundProduct.quantity-1}])
-            settotalPrice((prevTotalPrice)=>prevTotalPrice-foundProduct.price)
-            settotalQuantities((prevTotalQuantity)=>prevTotalQuantity-1)
+            setCartItems([...newCartItems,{...foundProduct,quantity: foundProduct.quantity-1}])
+            setTotalPrice((prevTotalPrice)=>prevTotalPrice-foundProduct.price)
+            setTotalQuantities((prevTotalQuantity)=>prevTotalQuantity-1)
             }
         }
     }
@@ -74,8 +74,11 @@ export const StateContext = ({children}) => {
         showCart,
         setShowCart,
         cartItems,
+        setCartItems,
         totalPrice,
+        setTotalPrice,
         totalQuantities,
+        setTotalQuantities,
         qty,
         incQty,
         decQty,
