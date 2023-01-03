@@ -4,14 +4,18 @@ import {AiOutlineShopping} from 'react-icons/ai'
 
 import {Cart} from './';
 import {useStateContext} from '../context/StateContext'
+import Model from './Model';
 
 const Navbar = () => {
   const {showCart, setShowCart, totalQuantities} = useStateContext();
+
+  
   return (
     <div className='navbar-container'>
       <p className='logo'>
         <Link href='/'>Sounza</Link>
       </p>
+      <Model/>
       <button type='button'
       className='cart-icon'
       onClick={()=>setShowCart(true)}
