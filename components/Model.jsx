@@ -18,7 +18,7 @@ const customStyles = {
 };
 
 function Model() {
-  const {sex, setSex,model, setModel} = useStateContext();
+  const {sex, setSex,model, setModel, yourModel, setYourModel} = useStateContext();
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
 
   const getAuthenticationHeader=(json=false)=> {
@@ -26,8 +26,8 @@ function Model() {
     var pbkdf2 = require('pbkdf2')
     let time =  parseInt(Date.now()/1000);
     var derivedKey = pbkdf2.pbkdf2Sync('fc44e234e9ea892b0dad04f9e77bb36c', time.toString(), 128, 32, 'sha256');
-
     derivedKey = derivedKey.toString('hex');
+
     if (json) {
         return  new Headers({
             "public_key": 'a0937e3c254399669ed27056fbef51c5',
@@ -63,14 +63,6 @@ function Model() {
   
     console.log(model)
   }
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-
   return (
     <Container maxWidth="sm">
       <Button
@@ -82,13 +74,14 @@ function Model() {
       >
         モーダル開く
       </Button>
-      <Modal isOpen={editModalIsOpen} style={customStyles} ariaHideApp={false}>
+      <Modal isOpen={editModalIsOpen} ariaHideApp={false}>
+        <div>
         <h2>Choose Sex</h2>
         <div>
-        <button type="button" className="" onClick={()=>setSex('Male')}>
+        <button type="button" className="" onClick={()=>setSex('male')}>
           Male
         </button>
-        <button type="button" className="" onClick={()=>setSex('Female')}>
+        <button type="button" className="" onClick={()=>setSex('female')}>
           Female
         </button>
         <button type="button" className="" onClick={()=>showmodel(sex)}>Submit</button>
@@ -112,23 +105,17 @@ function Model() {
           interval: 3000, // 自動再生の間隔を3秒に設定
         }}
       >
+        {model.model_files.map((model_file,i)=>
         <SplideSlide>
-          <img src= 'https://media.revery.ai/generated_model_image/1697455153;symbol_186303-symbol_180023;1645298183894173.png'/>
-            </SplideSlide>
-
-            <SplideSlide>
-            <img src= 'https://media.revery.ai/generated_model_image/1697455153;symbol_186303-symbol_180023;1645298183894173.png'/>
-            </SplideSlide>
-            <SplideSlide>
-            <img src= 'https://media.revery.ai/generated_model_image/1697455153;symbol_186303-symbol_180023;1645298183894173.png'/>
-            </SplideSlide>
-            <SplideSlide>
-              ogege
-            </SplideSlide>
-            </Splide>
+          <img src={`https://media.revery.ai/generated_model_image/${model_file}.png`} onClick={()=>setYourModel(model.models[i])}/>
+        </SplideSlide>
+        )}
+        {console.log(sex)}
+        </Splide>
           </div>  
       :null}
       
+       </div>
        </div>
       </Modal>
     </Container>

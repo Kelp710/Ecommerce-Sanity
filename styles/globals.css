@@ -763,7 +763,7 @@ margin-top: 160px;
 }
 
 .modal{
-  background: e;
+  box-sizing: content-box;
   padding: 10px;
   border-radius: 3px;
 };
@@ -779,3 +779,8 @@ margin-top: 160px;
   align-items: center;
   justify-content: center;
 };
+
+.modal-frame{
+  box-sizing: content-box;
+
+}
