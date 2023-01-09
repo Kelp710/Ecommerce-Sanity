@@ -698,7 +698,7 @@ margin-top: 160px;
   }
   .product .cart-product-image{
     width: 25%;
-    height: 25%;
+    height: 30%;
   }
   .buttons .add-to-cart{
     width: 150px;
@@ -782,5 +782,20 @@ margin-top: 160px;
 
 .modal-frame{
   box-sizing: content-box;
+  width: 20%;
+}
 
+.model_pic{
+  width: 20rem;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.model_pic:hover {
+  cursor: pointer;
+}
+
+.merged_pic{
+  width: 20rem;
+  margin-left: 25%;
 }

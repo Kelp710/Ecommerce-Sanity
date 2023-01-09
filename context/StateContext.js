@@ -13,6 +13,8 @@ export const StateContext = ({children}) => {
     const [model, setModel] = useState(null)
     const [yourModel, setYourModel] = useState(null)
     const [popUp, setPopUp] = useState(false);
+    const [mergedPic, setMergedPic] = useState(null)
+    const [checkedPic, setCheckedPic] = useState(null)
 
     let foundProduct;
     let index;
@@ -96,7 +98,11 @@ export const StateContext = ({children}) => {
         popUp,
         setPopUp,
         yourModel, 
-        setYourModel
+        setYourModel,
+        mergedPic,
+        setMergedPic,
+        checkedPic, 
+        setCheckedPic
     }}>
         {children}
     </Context.Provider>)
