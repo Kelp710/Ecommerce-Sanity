@@ -71,6 +71,7 @@ function Model() {
   return (
     <Container maxWidth="sm">
       <Button
+        className="modal_button"
         variant="contained"
         color="primary"
         onClick={() => {

@@ -762,6 +762,11 @@ margin-top: 160px;
 }
 }
 
+.modal_button{
+  position:absolute;
+  right: 3rem;
+  
+}
 .modal{
   box-sizing: content-box;
   padding: 10px;
@@ -787,8 +792,8 @@ margin-top: 160px;
 
 .model_pic{
   width: 20rem;
-  margin-left: 30%;
-  margin-right: 30%;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .model_pic:hover {

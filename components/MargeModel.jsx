@@ -4,7 +4,8 @@ import { Button, Container } from "@mui/material";
 import Modal from "react-modal";
 import '@splidejs/splide/css'; 
 import {TiDeleteOutline} from 'react-icons/ti'
-import { mergeBreakpointsInOrder } from "@mui/system";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const customStyles = {
   content: {
@@ -48,6 +49,10 @@ function Model(product) {
 }
 
   const merge=async()=>{
+    if(!yourModel){
+      toast("Set your model!")
+      return
+    }
     const garments_data_pre = await fetch('https://api.revery.ai/console/v1/get_filtered_garments', {
         method: 'GET',
             headers: getAuthenticationHeader(),
@@ -88,9 +93,11 @@ function Model(product) {
           }
     )
     const merged_pic = await merged_data.json()
+    console.log(data)
     setMergedPic(await merged_pic.model_metadata.model_file)
     setEditModalIsOpen(true)
   }
+
 
 
   return (
@@ -104,6 +111,7 @@ function Model(product) {
       >
         モーダル開く
       </Button>
+      <ToastContainer />
       <Modal isOpen={editModalIsOpen} style={customStyles} ariaHideApp={false}>
       <button
                 type='button'
