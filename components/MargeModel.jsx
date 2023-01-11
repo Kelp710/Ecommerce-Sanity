@@ -20,7 +20,7 @@ const customStyles = {
 };
 
 function Model(product) {
-  const {sex, setSex,model, setModel, yourModel, setYourModel, mergedPic, setMergedPic} = useStateContext();
+  const {yourModel, mergedPic, setMergedPic} = useStateContext();
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
   const slug = product.product.slug.current
   const getAuthenticationHeader=(json=false)=> {
@@ -102,15 +102,12 @@ function Model(product) {
 
   return (
     <Container maxWidth="sm">
-      <Button
-        variant="contained"
-        color="primary"
+      <button 
+      type='button' 
+      className='tryon-button'
         onClick={() => {
           merge();
-        }}
-      >
-        モーダル開く
-      </Button>
+        }}>Try On</button>
       <ToastContainer />
       <Modal isOpen={editModalIsOpen} style={customStyles} ariaHideApp={false}>
       <button

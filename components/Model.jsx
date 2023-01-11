@@ -20,7 +20,7 @@ const customStyles = {
 };
 
 function Model() {
-  const {sex, setSex,model, setModel, yourModel, setYourModel, checkedPic, setCheckedPic} = useStateContext();
+  const {model, setModel, setYourModel, checkedPic, setCheckedPic} = useStateContext();
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
 
   const getAuthenticationHeader=(json=false)=> {
@@ -70,16 +70,14 @@ function Model() {
 
   return (
     <Container maxWidth="sm">
-      <Button
-        className="modal_button"
-        variant="contained"
-        color="primary"
-        onClick={() => {
+      <button
+          type="button"
+          className="model-button modal_button"
+          onClick={() => {
           setEditModalIsOpen(true);
-        }}
-      >
-        モーダル開く
-      </Button>
+        }}>
+          Set a Model
+      </button>
       <Modal isOpen={editModalIsOpen} ariaHideApp={false} portalClassName="modal-frame">
       <button
                 type='button'
@@ -90,33 +88,28 @@ function Model() {
                 >
                   <TiDeleteOutline/>
                 </button>
+        <div className="model-modal">
         <div>
-        <h2>Choose Sex</h2>
-        <div>
-        <button type="button" className="" onClick={()=>setSex('male')}>
+        <h2 className="chose-title">Choose Sex</h2>
+        <div className="gender-buttons">
+        <a type="button" className="btn btn-malformation male-button" onClick={()=>showmodel('male')}>
           Male
-        </button>
-        <button type="button" className="" onClick={()=>setSex('female')}>
+        </a>
+        <a type="button" className="btn btn-malformation female-button" onClick={()=>showmodel('female')}>
           Female
-        </button>
-        <button type="button" className="" onClick={()=>showmodel(sex)}>Submit</button>
+        </a>
         </div>
-       <div>
-        {sex ?
-        <div>
-          <h2>Choose a model</h2>
-
-          </div>
-          :null}
-       </div>
        <div>
         {model ?
         <div>
+          <div>
+          <h2 className="chose-title">Choose a model</h2>
+          </div>
           <Splide
         aria-label="私のお気に入りの画像集"
         options={{
-          autoplay: true, // 自動再生を有効
-          interval: 3000, // 自動再生の間隔を3秒に設定
+          autoplay: true, 
+          interval: 3000,
         }}
       >
         
@@ -129,11 +122,11 @@ function Model() {
           key={i}/>
         </SplideSlide>
         )}
-        {console.log(sex)}
         </Splide>
           </div>  
       :null}
       
+       </div>
        </div>
        </div>
       </Modal>
