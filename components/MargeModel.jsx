@@ -98,8 +98,6 @@ function Model(product) {
     setEditModalIsOpen(true)
   }
 
-
-
   return (
     <Container maxWidth="sm">
       <button 

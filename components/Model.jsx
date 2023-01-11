@@ -90,7 +90,7 @@ function Model() {
         {model ?
         <div>
           <div>
-          <h2 className="chose-title">Choose a model</h2>
+          <h2 className="chose-title">Choose a Model</h2>
           </div>
           <Splide
         aria-label="私のお気に入りの画像集"

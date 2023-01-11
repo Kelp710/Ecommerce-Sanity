@@ -116,7 +116,7 @@ width: 100%;
 .product-image{
   height: 300px;
   border-radius: 15px;
- background-color: #ebebeb;
+ background-color: #8fbc8f;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
@@ -132,7 +132,7 @@ width: 100%;
 
 .hero-banner-container{
   padding: 100px 40px;
-  background-color: #dcdcdc;
+  background-color: #8fbc8f;
   border-radius: 15px;
   position: relative;
   height: 500px;
@@ -541,7 +541,9 @@ padding: 30px 65px;
   transform:scale(1.1,1.1)
 }
 .model-button{
-  padding: 8px 16px;
+  padding: 7px 16px;
+  position: relative;
+  top: -5px;
   border: 1px solid #f02d34 ;
   font-size: 18px;
   font-weight: 500;
@@ -549,7 +551,7 @@ padding: 30px 65px;
   color: #f02d34;
   cursor: pointer;
   width: 150px;
-   transform: scale(1, 1);
+  transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
 .model-button:hover{
@@ -868,13 +870,13 @@ button.btn {
 }
 
 .model-modal{
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   position: relative;
   text-align: center;
 }
 
 .chose-title{
-  margin:15px 0;
+  margin-bottom: 15px;
 }
 
 a.btn-malformation {
