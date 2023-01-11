@@ -1,6 +1,6 @@
-import { useState, Component, useEffect }from "react";
+import { useState }from "react";
 import {useStateContext} from '../context/StateContext'
-import { Button, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import Modal from "react-modal";
 import '@splidejs/splide/css'; 
 import {TiDeleteOutline} from 'react-icons/ti'

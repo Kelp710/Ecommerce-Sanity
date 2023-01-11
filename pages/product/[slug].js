@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Modal from "react-modal";
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar} from 'react-icons/ai' 
 
 import {client, urlFor} from '../../lib/Client'
@@ -8,7 +7,7 @@ import {useStateContext } from '../../context/StateContext';
 import Model from '../../components/MargeModel'
 
 const ProductDetails = ({product, products}) => {
-const {image, name, details, price, slug} = product;
+const {image, name, details, price} = product;
 const [index, setIndex] = useState(0)
 const { qty, incQty,decQty, onAdd, setShowCart } = useStateContext();
 const handleBuyNow = ()=>{

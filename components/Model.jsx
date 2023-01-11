@@ -6,19 +6,6 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/splide/css'; 
 import {TiDeleteOutline} from 'react-icons/ti'
 
-const customStyles = {
-  content: {
-    top: "30%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: "30%",
-    minWidth: "20%",
-  },
-};
-
 function Model() {
   const {model, setModel, setYourModel, checkedPic, setCheckedPic} = useStateContext();
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
