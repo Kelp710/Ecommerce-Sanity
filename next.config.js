@@ -3,7 +3,7 @@ module.exports = {
   async rewrites() {
       return [
         {
-          source: '/api/:path*',
+          source: 'https://shopsanity2.vercel.app/:path*',
 
           destination: 'https://api.revery.ai/:path*',
         },
