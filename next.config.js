@@ -5,7 +5,7 @@ module.exports = {
         {
           source: '/api/:path*',
 
-          destination: 'https://api.revery.ai/console/v1/:path*',
+          destination: 'https://api.revery.ai/:path*',
         },
       ]
     },
