@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className='navbar-container'>
       <p className='logo'>
-        <Link href='/'>Tommy Harufiger</Link>
+        <Link href='/'>Tommy Harufiger1</Link>
       </p>
       <Model/>
       <button type='button'
