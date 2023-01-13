@@ -61,7 +61,6 @@ function Model(product) {
     const garments_data = await garments_data_pre.json()
 
     for (const i=0; i < await garments_data.garments.length; i++){
-        console.log(garments_data.garments[i].id)
         if (garments_data.garments[i].id === slug){
           const current_garment=garments_data.garments[i]
           var setname = current_garment.tryon.category, 
