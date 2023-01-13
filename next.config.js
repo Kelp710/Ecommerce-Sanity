@@ -4,7 +4,7 @@ module.exports = {
     return [
       {
         // matching all API routes
-        source: "https://api.revery.ai/console/:path*",
+        source: "/api.revery.ai/console/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
