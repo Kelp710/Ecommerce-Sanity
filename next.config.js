@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    reactStrictMode: true,
+module.exports = {
+  async rewrites() {
+      return [
+        {
+          source: '/api/:path*',
 
-}
-
-module.exports = nextConfig
+          destination: 'https://api.revery.ai/console/v1/:path*',
+        },
+      ]
+    },
+};
