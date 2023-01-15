@@ -36,16 +36,13 @@ function Model() {
 }
 
   const modelData= async(gender)=>{
-    const model_data = await fetch(`https://api.revery.ai/console/v1/get_model_list?gender=${gender}`, {
-		    method: 'GET',
-        headers: getAuthenticationHeader(),
-          mode: "no-cors",
-		}
-)
+    const model_data = await fetch(`/api/garment?gender=${gender}`)
+    console.log(model_data)
     return model_data
 }
 
   const showmodel=async(gender)=>{
+    
     const models = await (await modelData(gender)).json()
     setModel(models)
   }
