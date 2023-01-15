@@ -10,33 +10,8 @@ function Model() {
   const {model, setModel, setYourModel, checkedPic, setCheckedPic} = useStateContext();
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
 
-  const getAuthenticationHeader=(json=false)=> {
-
-    var pbkdf2 = require('pbkdf2')
-    let time =  parseInt(Date.now()/1000);
-    var derivedKey = pbkdf2.pbkdf2Sync('fc44e234e9ea892b0dad04f9e77bb36c', time.toString(), 128, 32, 'sha256');
-    derivedKey = derivedKey.toString('hex');
-
-    if (json) {
-        return  new Headers({
-            "public_key": 'a0937e3c254399669ed27056fbef51c5',
-            "one_time_code": derivedKey,
-            "timestamp": time,
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-        })
-    } else {
-        return  new Headers({
-            "public_key": 'a0937e3c254399669ed27056fbef51c5',
-            "one_time_code": derivedKey,
-            "timestamp": time,
-        })
-    }
-
-}
-
   const modelData= async(gender)=>{
-    const model_data = await fetch(`/api/garment?gender=${gender}`)
+    const model_data = await fetch(`/api/models?gender=${gender}`)
     console.log(model_data)
     return model_data
 }

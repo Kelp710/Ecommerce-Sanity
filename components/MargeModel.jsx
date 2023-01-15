@@ -87,12 +87,7 @@ function Model(product) {
         "model_id": yourModel,
     });
  
-    const merged_data = await fetch('https://api.revery.ai/console/v1/request_tryon', {
-            method: 'POST',
-            headers: getAuthenticationHeader(true),
-            body: data
-          }
-    )
+    const merged_data = await fetch(`/api/merge?data=${data}`)
     const merged_pic = await merged_data.json()
     console.log(data)
     setMergedPic(await merged_pic.model_metadata.model_file)

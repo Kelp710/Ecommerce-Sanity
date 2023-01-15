@@ -1,4 +1,4 @@
-const garment = async (req, res) => {
+const models = async (req, res) => {
     const getAuthenticationHeader=(json=false)=> {
 
         var pbkdf2 = require('pbkdf2')
@@ -23,14 +23,15 @@ const garment = async (req, res) => {
         }
     
     }
-    const gender = req.query.gender
-    const response = await fetch(`https://api.revery.ai/console/v1/get_model_list?gender=${gender}`, {
-		method: 'GET',
-        headers: getAuthenticationHeader(),
-		}
+    const merge_data = req.query.data
+    const response = await fetch('https://api.revery.ai/console/v1/request_tryon', {
+        method: 'POST',
+        headers: getAuthenticationHeader(true),
+        body: merge_data
+      }
 )
     const data = await response.json();
     res.status(200).json(data);
   };
   
-  export default garment;
+  export default models;
