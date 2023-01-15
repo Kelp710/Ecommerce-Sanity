@@ -53,11 +53,7 @@ function Model(product) {
       toast("Set your model!")
       return
     }
-    const garments_data_pre = await fetch('https://api.revery.ai/console/v1/get_filtered_garments', {
-        method: 'GET',
-            headers: getAuthenticationHeader(),
-        }
-    )
+    const garments_data_pre = await fetch('/api/garment')
     const garments_data = await garments_data_pre.json()
 
     for (const i=0; i < await garments_data.garments.length; i++){

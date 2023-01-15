@@ -27,7 +27,6 @@ function Model() {
     setCheckedPic(i)
   }
 
-
   return (
     <Container maxWidth="sm">
       <button

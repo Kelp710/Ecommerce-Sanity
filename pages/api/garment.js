@@ -1,4 +1,4 @@
-const models = async (req, res) => {
+const garment = async (req, res) => {
     const getAuthenticationHeader=(json=false)=> {
 
         var pbkdf2 = require('pbkdf2')
@@ -15,7 +15,7 @@ const models = async (req, res) => {
                 Accept: 'application/json',
             })
         } else {
-            return  new Headers({ 
+            return  new Headers({
                 "public_key": 'a0937e3c254399669ed27056fbef51c5',
                 "one_time_code": derivedKey,
                 "timestamp": time,
@@ -23,14 +23,13 @@ const models = async (req, res) => {
         }
     
     }
-    const gender = req.query.gender
-    const response = await fetch(`https://api.revery.ai/console/v1/get_model_list?gender=${gender}`, {
-		method: 'GET',
-        headers: getAuthenticationHeader(),
-		}
-)
+    const response = await fetch('https://api.revery.ai/console/v1/get_filtered_garments', {
+        method: 'GET',
+            headers: getAuthenticationHeader(),
+        }
+    )
     const data = await response.json();
     res.status(200).json(data);
   };
   
-  export default models;
+  export default garment;
