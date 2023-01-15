@@ -39,6 +39,7 @@ function Model() {
     const model_data = await fetch(`https://api.revery.ai/console/v1/get_model_list?gender=${gender}`, {
 		    method: 'GET',
         headers: getAuthenticationHeader(),
+          mode: "no-cors",
 		}
 )
     return model_data
