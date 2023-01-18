@@ -16,9 +16,9 @@ Try it on!
 Secure and smooth checkout
 ![buying](https://user-images.githubusercontent.com/101992380/212930552-9be43816-0377-439c-bff7-86982cd60e39.gif)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Running this project
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
