@@ -1,4 +1,4 @@
-## Getting Started
+## Description
 
 Welcome to our ecommerce website! Our website offers a wide variety of products for customers to browse and purchase. Our site is designed to be easy to use and navigate, with a user-friendly interface and a variety of features to make shopping more convenient. 
 Our main features include a Virtual Try On function, a shopping cart, and a secure checkout process.
@@ -6,10 +6,10 @@ Our main features include a Virtual Try On function, a shopping cart, and a secu
 
 ## How to use the Try On function
 
-#Set a model close to your characteristics.
+# Set a model close to your characteristics.
 ![Animation1](https://user-images.githubusercontent.com/101992380/212930523-bb0e8ed1-242c-4013-9291-e9256ea6b9d8.gif)
 
-#Try it on!
+Try it on!
 ![Animation](https://user-images.githubusercontent.com/101992380/212930427-863970b0-cf6e-49cf-a785-20fce88faeff.gif)
 
 ## Functional checkout process using Stripe
@@ -17,6 +17,8 @@ Secure and smooth checkout
 ![buying](https://user-images.githubusercontent.com/101992380/212930552-9be43816-0377-439c-bff7-86982cd60e39.gif)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Running this project
 
 First, run the development server:
 
